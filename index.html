@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7c5e1; /* Change background color */
+      height: 100vh;
+      margin: 0; /* Remove default margin */
+      display: flex; /* Use flexbox for vertical centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+    }
+    
+    .container {
+      width: 80%;
+      text-align: center;
+    }
+    
+    .form-header {
+      font-weight: 300;
+      font-size: 38px;
+      color: #333333; /* Change header color */
+    }
+    
+    .form-description {
+      font-size: 18px;
+      color: #666666; /* Change description color */
+      margin-bottom: 20px; /* Add some bottom margin */
+    }
+    
+    .forms {
+      margin-top: 20px;
+      background-color: #ffffff; /* Light gray background color */
+      padding: 20px; /* Add some padding */
+      border-radius: 10px; /* Add border radius */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    }
+    
+    .forms label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333333; /* Change label color */
+    }
+    
+    .forms input, 
+    .forms select {
+      margin-bottom: 10px;
+      padding: 6px; /* Reduce padding */
+      width: calc(100% - 30px); /* Adjust input width */
+      box-sizing: border-box;
+    }
+    
+    .forms input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 5px; /* Add border radius */
+    }
+    
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666666; /* Change footer color */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-header">
+      <b>Form Validation</b>
+    </div>
+    <hr>
+    <div class="form-description">
+      Fill your Details 
+    </div>
+    <div class="forms">
+      <form name="validateForm" id="validateForm" action="" onsubmit="return validateFormm()" method="post">
+        <label>Account Holder Name</label>
+        <input type="text" id="accholder" name="acch"> 
+        <label>Bank Name</label>
+        <input type="text" id="bankname" name="bank"> 
+        <label>Branch</label>
+        <input type="text" id="branchname" name="branch"> 
+        <label>Card Number</label>
+        <input type="text" id="cardnumber" name="card"> 
+        <label>Card Type</label>
+        <select id="cardtype" name="cardt">
+          <option value="Debit">Debit</option>
+          <option value="Credit">Credit</option>
+        </select>
+        <label>Month / Year</label>
+        <input type="month" min="2020-03" name="monthyear" id="monthyearexp" value="2024-02"> 
+        <label>CVV</label>
+        <input type="text" id="cvvnum" name="cvv"> 
+        <!-- New Fields -->
+        <label>Phone Number</label>
+        <input type="tel" id="phonenumber" name="phone">
+        <label>Email</label>
+        <input type="email" id="email" name="email">
+        <label>Address</label>
+        <input type="text" id="address" name="address">
+        <!-- End of New Fields -->
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <hr>
+    <div class="footer">
+     
+    </div>
+  </div>
+
+  <script>
+    function validateAccName() {
+        var accholder = document.getElementById('accholder').value;
+
+        var regex = /^[a-zA-Z]+$/;
+        if (!(regex.test(accholder))) {
+          return false;
+        }
+        else {
+          return true;
+        }
+    }
+
+    function validateBankName() {
+        var bankname = document.getElementById('bankname').value;
+        if (bankname === "") {
+          alert("Please enter bank name.");
+          return false;
+        }
+        var regex = /^[a-zA-Z]+$/;
+        if (!(regex.test(bankname))) {
+          return false;
+        }
+        else {
+          return true;
+        }
+    }
+
+    function validateBranchName() {
+        var branchname = document.getElementById('branchname').value;
+        if (branchname === "") {
+          alert("Please enter your account holder name.");
+          return false;
+        }
+        var regex = /^[a-zA-Z]+$/;
+        if (!(regex.test(branchname))) {
+          return false;
+        }
+        else {
+          return true;
+        }
+    }
+
+    function cardNumber() {
+        var cardNo = document.getElementById('cardnumber').value;
+        if (cardNo === "") {
+          alert("Please enter your card number.");
+          return false;
+        }
+        var regex = /^[0-9]+$/;
+        if (!(regex.test(cardNo))) {
+          return false;
+        }
+        else {
+          return true;
+        }
+    }
+
+    function validateCVV() {
+        var cvv = document.getElementById('cvvnum').value;
+        if (cvv === "") {
+          alert("Please enter CVV");
+          return false;
+        }
+        var regex = /^[0-9]{3}$/;
+        if (!(regex.test(cvv))) {
+          return false;
+        }
+        else {
+          return true;
+        }
+    }
+
+    function validateFormm() {
+        if (!validateAccName()) {
+          alert("Please enter a valid account name!");
+          return false;
+        }
+        if (!validateBankName()) {
+          alert("Please enter a valid bank name!");
+          return false;
+        }
+        if (!validateBranchName()) {
+          alert("Please enter a valid branch name!");
+          return false;
+        }
+        if (!cardNumber()) {
+          alert("Please enter a valid card number!");
+          return false;
+        }
+        if (!validateCVV()) {
+          alert("Please enter a valid CVV!");
+          return false;
+        }
+        console.log('Form submitted successfully!!');
+        alert('Form submitted successfully!!');
+        return true;
+    }
+  </script>
+</body>
+</html>

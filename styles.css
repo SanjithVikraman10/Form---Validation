@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* background: linear-gradient(90deg,rgb(180, 123, 132) 0%, rgb(202, 166, 166) 30%, rgb(255, 231, 231) 70%); */
+  background: radial-gradient(rgb(202, 166, 166) 20%,rgb(180, 123, 132));
+
+  height: 100vh;
+}
+
+p {
+  text-shadow: #1F2544 1px 1px;
+}
+
+hr {
+  width: 70%;
+  color: #643843;
+}
+
+.forms {
+  align-items: center;
+  display: grid;
+  grid-template-columns: [labels] 1fr;
+    grid-auto-flow: row;
+    grid-gap: .10em .10em;
+  place-items: center;
+  padding: 1.2em;
+    width: 36em;
+}
+/*
+.one {
+  
+  grid-column: 1/2;
+  grid-row: 1;
+}
+
+.two {
+  grid-column: 2/4;
+  grid-row: 1;
+}*/
+
+
+
+label {
+  grid-columns: labels;
+  grid-row: auto;
+  padding: 2em;
+  color: #643843;
+}
+
+
+input {
+  grid-row: auto;
+  padding: .4em;
+  border: 0;
+  width:505px;
+  height: 40px;
+  border-radius: 7px;
+  border: 2px solid #944E63;
+  box-shadow: inset 0 0 2px 2px #B47B84;
+  background: transparent;
+}
+
+input[type="text"]{
+  margin-left: 5px;
+  padding-left:12px;
+  font-size: 18px;
+}
+
+input[type="text"]:focus {
+  border-radius: 7px;
+  transition: all 0.05s linear;
+  outline-style: solid;
+  outline-color: #944E63;
+  outline-width: 2px;
+
+}
+
+select {
+  grid-row: auto;
+  padding: .4em;
+  border: 0;
+  width:528px;
+  height: 55px;
+  border-radius: 7px;
+  border: 1px solid black;
+  box-shadow: inset 0 0 2px 2px #944E63;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+option {
+  font-family: 'Poppins', sans-serif;
+}
+
+select:focus {
+  border-radius: 7px;
+  transition: all 0.05s linear;
+  outline-style: solid;
+  outline-color: #944E63;
+  outline-width: 2px;
+}
